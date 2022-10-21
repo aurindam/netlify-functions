@@ -4,12 +4,16 @@
   functions = "netlify/functions"
   publish = "public"
 
+[[edge_functions]]
+  path = "/location"
+  function = "location"
+
 [functions]
   node_bundler = "esbuild"
 
 [dev]
   targetPort = 5000
-  
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]
