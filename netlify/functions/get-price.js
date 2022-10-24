@@ -23,6 +23,8 @@ function getEntries(o = {}) {
 
 export const handler = async (event, context) => {
   console.log({event}, {context})
+  console.log('process.env.VENDOR_ID', process.env.VENDOR_ID)
+  console.log('process.env.VENDOR_AUTH_CODE', process.env.VENDOR_AUTH_CODE)
   const eventBody = JSON.parse(event.body)
   console.log(JSON.stringify(eventBody))
   const url = createURL (eventBody);
