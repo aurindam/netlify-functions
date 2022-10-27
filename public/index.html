@@ -9,15 +9,18 @@
   <body>
     <h1>Up and Running with Serverless Functions</h1>
     <button id="fetch-btn">Fetch</button>
-    <button id="getPrice-btn">Get Price</button>
-    <button id="getLocation-btn">Get Location</button>
+    <button id="getPrice-btn">Get price</button>
+    <button id="getLocation-btn">Get location</button>
+    <button id="login-btn">Log in</button>
+    <div data-netlify-identity-button>Login with Netlify Identity</div>
     <p id="response-output">Response Placeholder</p>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const fetchBtn = document.getElementById('fetch-btn')
         const getPriceBtn = document.getElementById('getPrice-btn')
-        const getLocationtn = document.getElementById('getLocation-btn')
+        const getLocationBtn = document.getElementById('getLocation-btn')
+        const loginBtn = document.getElementById('login-btn')
         const responseText = document.getElementById('response-output')
 
         fetchBtn.addEventListener('click', async () => {
@@ -43,7 +46,14 @@
           responseText.innerText = JSON.stringify(response)
         })
 
-        getLocationtn.addEventListener('click', async () => {
+        getLocationBtn.addEventListener('click', async () => {
+          const response = await fetch('/location')
+            .then(response => response.json())
+
+          responseText.innerText = JSON.stringify(response)
+        })
+
+        loginBtn.addEventListener('click', async () => {
           const response = await fetch('/location')
             .then(response => response.json())
 
@@ -51,6 +61,8 @@
         })
 
       })
+
+      <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     </script>
   </body>
 </html>
